@@ -5,9 +5,8 @@ function App() {
   const[coins, setCoins] = useState([]);
   const[value, setValue] = useState(0);
   const[selected, setSelected] = useState("btc-bitcoin");
-  const[endConvert, setConverted] = useState(false);
+  const[endConvert, setConverted] = useState('');
   let converted = 0;
-  let showConverted;
 
   const onChangeInput = (event) => {
     setValue(event.target.value);
@@ -16,9 +15,9 @@ function App() {
   const onClick = () => {
     const selectedCoin = coins.find((coin) => coin.id === selected);
     converted = value / selectedCoin.quotes.USD.price;
-    showConverted = `${converted}` + selectedCoin.symbol;
-    console.log(showConverted);
-    setConverted(true);
+    const showConverted = `${converted}` + selectedCoin.symbol;
+    setConverted(showConverted);
+    return showConverted;
   }
 
   const onChangeSelect = (event) => {
@@ -47,7 +46,7 @@ function App() {
         <button onClick={onClick}>Convert</button>
       </div>
       <br />
-      {endConvert ? <span>You can buy {showConverted}</span> : null}
+      {endConvert !== '' ? <span>{`You can buy ${endConvert}`}</span> : null}
     </div>
   );
 }
