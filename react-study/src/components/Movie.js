@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
@@ -30,7 +30,7 @@ Movie.propTypes = {
     coverImg: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     summary: PropTypes.string.isRequired,
-    genre: PropTypes.arrayOf(PropTypes.string).isRequired
+    genres: PropTypes.arrayOf(PropTypes.string).isRequired
 };
 
 export default Movie;

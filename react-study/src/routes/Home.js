@@ -12,6 +12,8 @@ function Home(){
         setLoading(false);
     }
 
+    useEffect(loadMovie, []);
+
     return (
         <div>
             <h1>Movie Archive</h1>
@@ -35,3 +37,5 @@ function Home(){
         </div>
     )
 }
+
+export default Home;
